@@ -1,0 +1,9 @@
+composer -vvv create-project --prefer-dist laravel/laravel micro-auth-authorization "10.*" --prefer-dist
+php artisan key:generate
+composer install
+php artisan migrate
+php artisan make:controller Api\\UserController --api
+php artisan make:resource UserResource
+php artisan make:request StoreUpdateUserRequest
+php artisan migrate:refresh
+php artisan make:observer UserObserver --model=User
