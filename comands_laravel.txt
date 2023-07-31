@@ -7,3 +7,5 @@ php artisan make:resource UserResource
 php artisan make:request StoreUpdateUserRequest
 php artisan migrate:refresh
 php artisan make:observer UserObserver --model=User
+php artisan make:controller Api\\Auth\\RegisterController --api
+php artisan make:request Auth\\StoreUserRequest
