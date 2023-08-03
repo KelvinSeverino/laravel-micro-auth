@@ -9,3 +9,4 @@ php artisan migrate:refresh
 php artisan make:observer UserObserver --model=User
 php artisan make:controller Api\\Auth\\RegisterController --api
 php artisan make:request Auth\\StoreUserRequest
+php artisan make:controller Api\\Auth\\AuthController --api
