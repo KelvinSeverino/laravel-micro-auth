@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('permissions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('resource_id')->constrained('menu_resources');
+            $table->foreignId('menu_resource_id')->constrained('menu_resources');
             $table->string('name')->unique();
             $table->timestamps();
         });
