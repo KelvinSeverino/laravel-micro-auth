@@ -24,5 +24,8 @@ class MenuResourceSeeder extends Seeder
         $company->permissions()->create(['name' => 'criar_empresas']);
         $company->permissions()->create(['name' => 'editar_empresas']);
         $company->permissions()->create(['name' => 'deletar_empresas']);
+
+        $admin = MenuResource::create(['name' => 'Admins']);
+        $admin->permissions()->create(['name' => 'users']);
     }
 }

@@ -15,6 +15,9 @@ class UserController extends Controller
     public function __construct(User $user)
     {
         $this->model = $user;
+
+        //Verifica permissoes dos Gates do AuthServiceProvider
+        $this->middleware('can:users');
     }
 
     /**
