@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\{
     MenuResourceController,
+    PermissionUserController,
     UserController,
 };
 use App\Http\Controllers\Api\Auth\{
@@ -20,6 +21,8 @@ Route::get('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/resources', [MenuResourceController::class, 'index']);
 
+    Route::post('/users/permissions', [PermissionUserController::class, 'addPermissionsUser']);
+    Route::get('/users/{indentify}/permissions', [PermissionUserController::class, 'permissionsUser']);
     Route::apiResource('/users', UserController::class);
 });
 

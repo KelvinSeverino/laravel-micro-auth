@@ -18,3 +18,4 @@ php artisan db:seed
 php artisan make:controller Api\\MenuResourceController --api
 php artisan make:resource MenuResource
 php artisan make:resource PermissionResource
+php artisan make:request AddPermissionUserRequest
