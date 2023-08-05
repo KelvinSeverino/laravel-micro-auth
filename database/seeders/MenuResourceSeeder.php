@@ -27,5 +27,6 @@ class MenuResourceSeeder extends Seeder
 
         $admin = MenuResource::create(['name' => 'Admins']);
         $admin->permissions()->create(['name' => 'users']);
+        $admin->permissions()->create(['name' => 'add_permissions_user']);
     }
 }
