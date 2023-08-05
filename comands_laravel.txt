@@ -10,3 +10,11 @@ php artisan make:observer UserObserver --model=User
 php artisan make:controller Api\\Auth\\RegisterController --api
 php artisan make:request Auth\\StoreUserRequest
 php artisan make:controller Api\\Auth\\AuthController --api
+php artisan make:model MenuResource -m
+php artisan make:model Permission -m
+php artisan migrate
+php artisan make:seeder MenuResourceSeeder
+php artisan db:seed
+php artisan make:controller Api\\MenuResourceController --api
+php artisan make:resource MenuResource
+php artisan make:resource PermissionResource

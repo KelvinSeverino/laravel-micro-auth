@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\{
+    MenuResourceController,
     UserController,
 };
 use App\Http\Controllers\Api\Auth\{
@@ -17,6 +18,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 Route::get('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
 
 Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/resources', [MenuResourceController::class, 'index']);
+
     Route::apiResource('/users', UserController::class);
 });
 
