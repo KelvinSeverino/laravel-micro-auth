@@ -42,7 +42,7 @@ class PermissionUserController extends Controller
     {
         $user = $request->user();
 
-        if(!$user->hasPermission($permission)){
+        if(!$user->isSuperAdmin() && !$user->hasPermission($permission)){
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 
