@@ -18,7 +18,7 @@ class PermissionFactory extends Factory
     public function definition(): array
     {
         return [
-            'permission_id' => MenuResource::factory(),
+            'menu_resource_id' => MenuResource::factory(),
             'name' => fake()->unique()->name(),
         ];
     }

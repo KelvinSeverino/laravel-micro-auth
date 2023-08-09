@@ -22,3 +22,5 @@ php artisan make:request AddPermissionUserRequest
 
 php artisan make:factory MenuResourceFactory --model=MenuResource
 php artisan make:factory PermissionFactory --model=Permission
+
+php artisan make:test Api\\UserTest
