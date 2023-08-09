@@ -19,3 +19,6 @@ php artisan make:controller Api\\MenuResourceController --api
 php artisan make:resource MenuResource
 php artisan make:resource PermissionResource
 php artisan make:request AddPermissionUserRequest
+
+php artisan make:factory MenuResourceFactory --model=MenuResource
+php artisan make:factory PermissionFactory --model=Permission
