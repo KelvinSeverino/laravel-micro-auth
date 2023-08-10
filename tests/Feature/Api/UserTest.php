@@ -108,4 +108,44 @@ class UserTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_validations_store_user(): void
+    {
+        $permission = Permission::factory()->create(['name' => 'users']);
+
+        $user = User::factory()->create();
+        $token = $user->createToken('test_device')->plainTextToken;
+
+        $user->permissions()->attach($permission);
+
+        $response = $this
+                        ->withHeaders([
+                            'Authorization' => "Bearer {$token}"
+                        ])
+                        ->postJson("/users", []);
+
+        $response->assertStatus(422);
+    }
+
+    public function test_store_user(): void
+    {
+        $permission = Permission::factory()->create(['name' => 'users']);
+
+        $user = User::factory()->create();
+        $token = $user->createToken('test_device')->plainTextToken;
+
+        $user->permissions()->attach($permission);
+
+        $response = $this
+                        ->withHeaders([
+                            'Authorization' => "Bearer {$token}"
+                        ])
+                        ->postJson("/users", [
+                            'name' => 'Kelvin',
+                            'email' => 'kelvin@email.com',
+                            'password' => '12345678',
+                        ]);
+
+        $response->assertStatus(201);
+    }
 }
